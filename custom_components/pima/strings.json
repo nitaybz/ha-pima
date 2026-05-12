@@ -10,22 +10,22 @@
       },
       "legacy": {
         "title": "Connect to PIMA (net4pro)",
-        "description": "Leave **Host** blank to auto-scan the LAN. Leave **Zones** on *Auto-detect* and the panel itself will tell us 96 vs 144. Leave **Partitions** blank to auto-detect which ones are configured. The **access code** can be either a user or installer code — whichever the panel accepts for remote operation (many installs require the installer code).",
+        "description": "Leave Host blank to auto-scan the LAN. Leave Zones on Auto-detect and the panel itself will tell us 96 vs 144. Leave Partitions blank to auto-detect which ones are configured. The access code can be either a user or installer code, whichever the panel accepts for remote operation (many installs require the installer code).",
         "data": {
           "host": "Host / IP (blank = scan LAN)",
           "port": "TCP port",
           "code": "Access code (user or installer)",
           "zones": "Zone count",
-          "partitions": "Partitions (e.g. 1 or 1,2 — blank = auto)"
+          "partitions": "Partitions (e.g. 1 or 1,2, blank = auto)"
         }
       },
       "modern": {
         "title": "Connect to PIMA Force / Vision",
-        "description": "Force panels dial **into** Home Assistant — there's nothing for us to scan for. Pick a free TCP port (default 9999) and we'll listen on it.\n\nThen open the **PIMALINK 2.0** app → installer settings → Network and point the panel at `{ha_ip}:<the port below>`. The first frame the panel sends will auto-learn its account ID, zone count, partition list, zone names, and fault state — no need to type any of that here.\n\nThe **access code** is whichever user / master / installer code your panel accepts for remote API calls.",
+        "description": "Force panels dial into Home Assistant, there is nothing for us to scan for. Pick a free TCP port (default 9999) and we will listen on it.\n\nThen open the PIMALINK 2.0 app, go to installer settings, Network, and point the panel at {ha_ip} on the port below. The first frame the panel sends will auto-learn its account ID, zone count, partition list, zone names, and fault state.\n\nThe access code is whichever user, master or installer code your panel accepts for remote API calls.",
         "data": {
           "listen_port": "Listen port (HA opens this)",
           "code": "Access code (user, master or installer)",
-          "account": "Account ID (optional — auto-learned)"
+          "account": "Account ID (optional, auto-learned)"
         }
       },
       "pick_panel": {
@@ -51,7 +51,7 @@
     "step": {
       "init": {
         "title": "PIMA options",
-        "description": "Adjust the access code, partition list, polling interval, or whether HA prompts for a code before arming/disarming.",
+        "description": "Adjust the access code, partition list, polling interval, or whether HA prompts for a code before arming or disarming.",
         "data": {
           "code": "Access code (user or installer)",
           "partitions": "Partitions (comma-separated)",
