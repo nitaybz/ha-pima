@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
+.venv/
+.idea/
+.vscode/
+*.egg-info/
+
+# Vendor reference material kept locally for development but not
+# redistributable in a public repo (PIMA proprietary spec, third-party
+# driver source).
+docs/protocols/

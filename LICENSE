@@ -1,0 +1,15 @@
+                    GNU GENERAL PUBLIC LICENSE
+                       Version 3, 29 June 2007
+
+ Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
+ Everyone is permitted to copy and distribute verbatim copies
+ of this license document, but changing it is not allowed.
+
+This integration vendors a portion of the PIMA Hunter Pro protocol
+implementation from https://github.com/deiger/Alarm (Copyright 2019
+Dror Eiger), which is licensed GPL-3.0-or-later. To remain compatible
+with that vendored code this integration is also distributed under
+GPL-3.0-or-later.
+
+The full text of the GNU General Public License v3 is available at:
+    https://www.gnu.org/licenses/gpl-3.0.html

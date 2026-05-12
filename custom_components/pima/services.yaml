@@ -1,0 +1,26 @@
+bypass_zone:
+  name: Bypass zone
+  description: >
+    Toggle the bypass flag for a single zone. Useful when a sensor is faulty
+    or temporarily needs to be ignored. The packet shape was derived from
+    PIMA's published JSON protocol and the RTI Hunter Pro driver.
+  fields:
+    entry_id:
+      name: PIMA entry
+      description: >
+        The config entry id of the PIMA panel to send the command to.
+        Look it up in Settings → Devices & Services → PIMA Alarm → ⋮ → "Show entry id".
+      required: true
+      example: "01ABC..."
+      selector:
+        text:
+    zone:
+      name: Zone
+      description: Zone number to bypass (1–144).
+      required: true
+      example: 5
+      selector:
+        number:
+          min: 1
+          max: 144
+          step: 1

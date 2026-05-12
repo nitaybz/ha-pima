@@ -1,0 +1,73 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "PIMA Alarm",
+        "description": "Select your PIMA hardware family. Detection works for both legacy net4pro panels and (soon) the newer Force JSON panels.",
+        "data": {
+          "hardware": "Hardware"
+        }
+      },
+      "legacy": {
+        "title": "Connect to PIMA (net4pro)",
+        "description": "Leave **Host** blank to auto-scan the LAN. Leave **Zones** on *Auto-detect* and the panel itself will tell us 96 vs 144. Leave **Partitions** blank to auto-detect which ones are configured. The **access code** can be either a user or installer code — whichever the panel accepts for remote operation (many installs require the installer code).",
+        "data": {
+          "host": "Host / IP (blank = scan LAN)",
+          "port": "TCP port",
+          "code": "Access code (user or installer)",
+          "zones": "Zone count",
+          "partitions": "Partitions (e.g. 1 or 1,2 — blank = auto)"
+        }
+      },
+      "modern": {
+        "title": "Connect to PIMA Force / Vision",
+        "description": "Force panels dial **into** Home Assistant — there's nothing for us to scan for. Pick a free TCP port (default 9999) and we'll listen on it.\n\nThen open the **PIMALINK 2.0** app → installer settings → Network and point the panel at `{ha_ip}:<the port below>`. The first frame the panel sends will auto-learn its account ID, zone count, partition list, zone names, and fault state — no need to type any of that here.\n\nThe **access code** is whichever user / master / installer code your panel accepts for remote API calls.",
+        "data": {
+          "listen_port": "Listen port (HA opens this)",
+          "code": "Access code (user, master or installer)",
+          "account": "Account ID (optional — auto-learned)"
+        }
+      },
+      "pick_panel": {
+        "title": "Multiple PIMA panels found",
+        "description": "The LAN scan returned more than one matching device. Pick the one you want to connect to.",
+        "data": {
+          "host": "Panel"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Couldn't reach the panel. Check that net4pro is online and the port is correct.",
+      "invalid_auth": "The access code was rejected by the panel. Many installs require the installer (master) code rather than a user code for remote IP access.",
+      "invalid_partitions": "Partitions must be a comma-separated list of numbers between 1 and 16.",
+      "scan_no_panel": "No PIMA panel was found on the LAN. Enter the host manually.",
+      "unknown": "Unexpected error talking to the panel."
+    },
+    "abort": {
+      "already_configured": "This PIMA panel is already configured."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "PIMA options",
+        "description": "Adjust the access code, partition list, polling interval, or whether HA prompts for a code before arming/disarming.",
+        "data": {
+          "code": "Access code (user or installer)",
+          "partitions": "Partitions (comma-separated)",
+          "scan_interval": "Polling interval",
+          "require_code": "Require code in HA UI to arm/disarm"
+        }
+      }
+    },
+    "error": {
+      "invalid_partitions": "Partitions must be a comma-separated list of numbers between 1 and 16."
+    }
+  },
+  "services": {
+    "bypass_zone": {
+      "name": "Bypass zone",
+      "description": "Toggle the bypass flag for a single zone on the panel."
+    }
+  }
+}
